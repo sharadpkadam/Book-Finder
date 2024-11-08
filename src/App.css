@@ -1,38 +1,128 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  font-family: Arial, sans-serif;
+  background: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080') no-repeat center center fixed;
+  background-size: cover;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  min-height: 100vh;
+  color: #f5f5f5;
+}
+
+.app {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.overlay {
+  text-align: center;
+  max-width: 600px;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 15px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.search {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.search input {
+  padding: 12px;
+  width: 70%;
+  border-radius: 8px;
+  border: none;
+  font-size: 1em;
+  outline: none;
+}
+
+.search button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff6b6b;
   color: white;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.search button:hover {
+  background-color: #ff4b4b;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.loading {
+  font-size: 1.2em;
+  color: #ddd;
+}
+
+.book-list {
+  display: grid;
+  gap: 20px;
+}
+
+.book-item {
+  display: flex;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+.book-item img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.book-info h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #f5f5f5;
+}
+
+.book-info p {
+  margin: 5px 0;
+  color: #ddd;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 8px 16px;
+  background-color: #ff6b6b;
+  color: #f5f5f5;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #ff4b4b;
 }
