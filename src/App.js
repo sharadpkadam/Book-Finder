@@ -6,14 +6,13 @@ function App() {
     const [searchTerm, setSearchTerm] = useState("");
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [isSearching, setIsSearching] = useState(false); // New state for toggling search/results view
+    const [isSearching, setIsSearching] = useState(false); 
 
-    // Fetch books based on search term
     const handleSearch = async () => {
         if (searchTerm.trim() === "") return;
 
         setLoading(true);
-        setIsSearching(true); // Switch to results view
+        setIsSearching(true); 
         try {
             const response = await fetch(`https://openlibrary.org/search.json?title=${searchTerm}`);
             const data = await response.json();
@@ -25,11 +24,10 @@ function App() {
         }
     };
 
-    // Handle "Back" button click to reset view
     const handleBack = () => {
-        setIsSearching(false); // Switch back to search view
-        setBooks([]); // Clear the search results
-        setSearchTerm(""); // Clear the search term input
+        setIsSearching(false); 
+        setBooks([]);
+        setSearchTerm(""); 
     };
 
     return (
@@ -37,14 +35,12 @@ function App() {
             <div className="overlay">
                 <h1>Book Finder</h1>
 
-                {/* Back button - only visible when in results view */}
                 {isSearching && (
                     <button className="back-button" onClick={handleBack}>
                         &larr; Back
                     </button>
                 )}
 
-                {/* Search input and button, hidden when in results view */}
                 {!isSearching && (
                     <div className="search">
                         <input
@@ -56,8 +52,7 @@ function App() {
                         <button onClick={handleSearch}>Search</button>
                     </div>
                 )}
-
-                {/* Show loading message or book results */}
+                
                 {loading ? (
                     <p className="loading">Loading...</p>
                 ) : (
